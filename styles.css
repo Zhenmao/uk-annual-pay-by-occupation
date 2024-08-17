@@ -1,6 +1,7 @@
 body {
-  font-family: 'Saira Condensed', sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 12px;
+  margin: 0;
 }
 
 .container {
@@ -19,11 +20,11 @@ svg text {
 }
 
 .cells circle {
-  fill: #FED030;
+  fill: #fed030;
 }
 
 .cells :hover circle {
-  fill: #EE25EC;
+  fill: #ee25ec;
 }
 
 .axis .domain {
@@ -35,11 +36,11 @@ svg text {
 }
 
 .median-line line {
-  stroke: #EE25EC;
+  stroke: #ee25ec;
 }
 
 .median-line text {
-  fill: #EE25EC;
+  fill: #ee25ec;
 }
 
 .tooltip * {
