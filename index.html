@@ -1,29 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>UK Annual Pay by Occupation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=Saira+Condensed:400,700"
+      href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>UK Annual Pay by Occupation</h1>
-      <div>
-        <input
-          type="search"
-          name="occupation-search"
-          id="search-input"
-          placeholder="Search an occupation..."
-        />
-      </div>
-      <div id="chart"></div>
-    </div>
-    <script src="index.js"></script>
+    <main>
+      <article>
+        <h1>UK Annual Pay by Occupation</h1>
+
+        <div>
+          <label for="occupationSearch" class="visually-hidden"
+            >Search occupations</label
+          >
+          <input
+            class="occupation-search"
+            type="search"
+            name="occupationSearch"
+            list="occupationList"
+            id="occupationSearch"
+            placeholder="Search occupations…"
+            autocomplete="off"
+          />
+          <datalist id="occupationList"></datalist>
+        </div>
+
+        <div class="feature">
+          <div class="sidebar">
+            <h2>How to Read</h2>
+            <p>Each circle represents an occupation.</p>
+            <div class="legends">
+              <div class="legend">
+                <h3>Annual Pay</h3>
+                <div id="colorLegend"></div>
+              </div>
+              <div class="legend">
+                <h3>Number of Jobs</h3>
+                <div id="sizeLegend"></div>
+              </div>
+            </div>
+          </div>
+          <div id="all"></div>
+        </div>
+
+        <h2>By Occupation Category</h2>
+
+        <div class="bleed">
+          <div id="categories" class="categories"></div>
+        </div>
+
+        <div class="footer">
+          <p>
+            Data source: UK
+            <a href="https://www.ons.gov.uk/" target="_blank"
+              >Office for National Statistics (ONS)</a
+            >
+            <a
+              href="https://www.ons.gov.uk/surveys/informationforbusinesses/businesssurveys/annualsurveyofhoursandearningsashe"
+              target="_blank"
+              >Annual Survey of Hours and Earnings (ASHE)</a
+            >
+            <a
+              href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/occupation4digitsoc2010ashetable14"
+              target="_blank"
+              >Earnings and hours worked, occupation by four-digit SOC: ASHE
+              Table 14 2025 provisional edition</a
+            >
+          </p>
+
+          <p>
+            Design inspiration:
+            <a
+              href="https://flowingdata.com/2026/05/07/divorce-and-occupation-2026/"
+              target="_blank"
+              >Occupations with the highest divorce rates
+            </a>
+            from
+            <a href="https://flowingdata.com/" target="_blank">FlowingData</a>
+          </p>
+        </div>
+      </article>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

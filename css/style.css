@@ -1,0 +1,276 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+}
+
+:root {
+  --font-size-5xl: 3.815rem;
+  --font-size-4xl: 3.052rem;
+  --font-size-3xl: 2.441rem;
+  --font-size-2xl: 1.953rem;
+  --font-size-xl: 1.563rem;
+  --font-size-lg: 1.25rem;
+  --font-size-md: 1rem;
+  --font-size-sm: 0.8rem;
+
+  --font-family: "Saira Semi Condensed", sans-serif;
+
+  --font-weight-body: 400;
+  --font-weight-title: 700;
+
+  --line-height-title: 1;
+  --line-height-body: 1.4;
+
+  --color-bg: #ffffff;
+  --color-text: #222;
+  --color-stroke: #ccc;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--font-weight-title);
+  line-height: var(--line-height-title);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+}
+
+main {
+  margin-block: 4rem;
+}
+
+article {
+  position: relative;
+}
+
+article > * {
+  --max-width: 50rem;
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+}
+
+.bleed {
+  --max-width: 80rem;
+}
+
+article > * + * {
+  margin-block-start: var(--spacer, 2rem);
+}
+
+h2,
+.footer {
+  --spacer: 4rem;
+}
+
+.feature {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.feature > :first-child {
+  flex-basis: 15rem;
+  flex-grow: 1;
+}
+
+.feature > :last-child {
+  flex-basis: 0;
+  flex-grow: 9999;
+  min-inline-size: 50%;
+}
+
+.footer > * + * {
+  margin-block-start: 1rem;
+}
+
+.occupation-search {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1.5px solid var(--color-stroke);
+}
+
+.sidebar > * + * {
+  margin-block-start: 2rem;
+}
+
+.legends {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.legend > * + * {
+  margin-block-start: 0.5rem;
+}
+
+.swatch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.swatch__wrapper {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swatch__swatch {
+  border-radius: 50%;
+}
+
+.categories {
+  --min-width: 14rem;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--min-width), 100%), 1fr)
+  );
+  gap: 2rem;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.beeswarm text {
+  fill: currentColor;
+  font-size: var(--font-size-sm);
+}
+
+.beeswarm .tick line {
+  stroke: var(--color-stroke);
+}
+
+.beeswarm .median line {
+  stroke: currentColor;
+  stroke-dasharray: 4;
+}
+
+.beeswarm .bubble {
+  stroke: transparent;
+}
+
+.beeswarm .highlighting .highlighted {
+  stroke: currentColor;
+}
+
+.beeswarm .highlighting :not(.highlighted) {
+  fill-opacity: 0.25;
+}
+
+.beeswarm .bubble.active {
+  stroke-width: 2px;
+  stroke: currentColor;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: fit-content;
+  max-width: 75vw;
+  background: var(--color-bg);
+  font-size: var(--font-size-md);
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1.5px solid var(--color-border);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.15s ease-in-out,
+    visibility 0.15s ease-in-out;
+}
+
+.tooltip.visible {
+  opacity: 0.9;
+  visibility: visible;
+}
+
+.tooltip__category,
+.tooltip__item__key {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-title);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tooltip__name,
+.tooltip__item__value {
+  font-weight: var(--font-weight-title);
+}
+
+.tooltip hr {
+  margin-block: 0.25rem;
+  height: 1px;
+  background-color: var(--color-stroke);
+  border: none;
+}
+
+.visually-hidden {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
